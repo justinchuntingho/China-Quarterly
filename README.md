@@ -4,7 +4,7 @@ Justin Ho
 
 
 
-On 18 August, China Quarterly was forced by China to removes 300 articles in on its China site. I scraped all the available abstracts of articles and condcuted a simple text analysis in order to find out what is China so afraid of. The full list can be found [here](https://www.cambridge.org/core/services/aop-file-manager/file/59970028145fd05f66868bf5). 
+On 18 August, China Quarterly was forced by China to remove 300 articles on its China site. I scraped all the available abstracts of articles and condcuted a simple text analysis in order to find out what is China so afraid of. The full list can be found [here](https://www.cambridge.org/core/services/aop-file-manager/file/59970028145fd05f66868bf5). 
 
 Loading the required packages.
 
