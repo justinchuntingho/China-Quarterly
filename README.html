@@ -123,7 +123,7 @@ $(document).ready(function () {
 </div>
 
 
-<p>On 18 August, China Quarterly was forced by China to removes 300 articles in on its China site. I have scraped all the avaiable abstracts of articles and done a brief analysis in order to find out what is China so afraid of. The full list can be found <a href="https://www.cambridge.org/core/services/aop-file-manager/file/59970028145fd05f66868bf5">here</a>.</p>
+<p>On 18 August, China Quarterly was forced by China to removes 300 articles in on its China site. I scraped all the available abstracts of articles and condcuted a simple text analysis in order to find out what is China so afraid of. The full list can be found <a href="https://www.cambridge.org/core/services/aop-file-manager/file/59970028145fd05f66868bf5">here</a>.</p>
 <p>Loading the required packages.</p>
 <pre class="r"><code>require(readtext)
 require(quanteda)
@@ -148,7 +148,7 @@ absdfm &lt;- dfm(abstokens, remove = c(stopwords('english'), &quot;na&quot;)) %&
 ##   40.16857   40.16857   39.59485   38.44462   38.39185   37.90688 
 ##    china's        two       also      power    article      tibet 
 ##   36.53004   36.53004   36.42708   36.19803   35.10112   34.07945</code></pre>
-<p>Visualising the result. A very brief analysis shows that it seems that Cultural Revolution, Taiwan, Falun Gong, Political Movement, Mao and Tibet are the themes that terrify China the most.</p>
+<p>Visualising the result. A very brief analysis shows that it seems Cultural Revolution, Taiwan, Falun Gong, Political Movement, Mao and Tibet are the themes that terrify China the most.</p>
 <pre class="r"><code>textplot_wordcloud(absdfm, min.freq = 1, random.order = FALSE,
                    rot.per = .1, 
                    colors = RColorBrewer::brewer.pal(4,&quot;Dark2&quot;))</code></pre>

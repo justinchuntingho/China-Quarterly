@@ -4,7 +4,7 @@ Justin Ho
 
 
 
-On 18 August, China Quarterly was forced by China to removes 300 articles in on its China site. I have scraped all the avaiable abstracts of articles and done a brief analysis in order to find out what is China so afraid of. The full list can be found [here](https://www.cambridge.org/core/services/aop-file-manager/file/59970028145fd05f66868bf5). 
+On 18 August, China Quarterly was forced by China to removes 300 articles in on its China site. I scraped all the available abstracts of articles and condcuted a simple text analysis in order to find out what is China so afraid of. The full list can be found [here](https://www.cambridge.org/core/services/aop-file-manager/file/59970028145fd05f66868bf5). 
 
 Loading the required packages.
 
@@ -49,7 +49,7 @@ topfeatures(absdfm, 24)
 ##   36.53004   36.53004   36.42708   36.19803   35.10112   34.07945
 ```
 
-Visualising the result. A very brief analysis shows that it seems that Cultural Revolution, Taiwan, Falun Gong, Political Movement, Mao and Tibet are the themes that terrify China the most.
+Visualising the result. A very brief analysis shows that it seems Cultural Revolution, Taiwan, Falun Gong, Political Movement, Mao and Tibet are the themes that terrify China the most.
 
 
 ```r
