@@ -6,6 +6,37 @@ Justin Ho
 
 On 18 August, China Quarterly was forced by China to remove 300 articles on its China site. I scraped all the available abstracts of articles and condcuted a simple text analysis in order to find out what is China so afraid of. The full list can be found [here](https://www.cambridge.org/core/services/aop-file-manager/file/59970028145fd05f66868bf5). 
 
+## Web Scraping
+The codes I used to scrape the abstracts.
+
+```r
+library(rvest)
+library(magrittr)
+library(stringr)
+
+list <- readLines("list.txt")
+list <- paste(list, collapse=' ')
+list <- unlist(strsplit(list, " Published online", fixed = TRUE))
+links <- str_extract(list, "https://doi.org/10.1017/S[0-9X]*")
+links <- links[-318]
+
+df <- c()
+for (i in 1:length(links)){
+  tryCatch({
+  ab <- read_html(links[i])
+  title <- ab %>% html_node(xpath = "//*[@id=\"Top\"]/div/div[1]/h1") %>% html_text()
+  abtext <- ab %>% html_node(xpath = "//*[@id=\"Top\"]/div/div[2]/div[1]/div[2]/div[2]/div/div/p") %>% html_text()
+  }, error=function(e){title <- "Error"
+  abtext <- "Error"})
+  df <- rbind(df, c(title,abtext))
+}
+df <- as.data.frame(df)
+rownames(df) <- 1:length(df[,1])
+colnames(df) <- c("Title", "Text")
+write.csv(df, file ="abstract.csv", row.names = FALSE, fileEncoding = "UTF-8")
+```
+
+## Text Analysis
 Loading the required packages.
 
 ```r
@@ -19,7 +50,7 @@ set.seed(1024)
 Creating a corpus with the abstracts.
 
 ```r
-abs <- corpus(readtext("abstract edited.csv", textfield = "Text"))
+abs <- corpus(readtext("abstract edited.csv", text_field = "Text"))
 docnames(abs) <- docvars(abs)$Title
 ```
 
